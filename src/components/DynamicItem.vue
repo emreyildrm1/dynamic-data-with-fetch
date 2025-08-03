@@ -1,7 +1,6 @@
 <template>
  <div v-for="(product, index) in products" :key="index">
   <p>{{ product.title }}</p>
-  {{ product }}
   <img :src="product.image" alt="" />
  </div>
 </template>
@@ -15,7 +14,7 @@ onMounted(async () => {
   try {
     const response = await fetch('https://fakestoreapi.com/products')
     const data = await response.json()
-    products.value = data.slice(0, 9)
+    products.value = data.slice(0, 5)
   } catch (err) {
     console.error('Hata:', err)
   }
